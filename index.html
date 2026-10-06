@@ -3,356 +3,342 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Cielo Mío · Tu carta astral y tu semana</title>
+<title>Cielo Mío · Tu carta astral gratis</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://accounts.google.com/gsi/client" async defer></script>
 <style>
 :root{
-  --bg:#ECEAF6;--surface:#F8F7FD;--ink:#23173A;--muted:#5E5578;--sun:#E39A2E;--sun-ink:#2A1A05;
-  --line:#CFCAE3;--soft:#E0DCF0;--sea:#2C7A78;--err:#B3261E;
-  --display:"Gloock",Georgia,serif;--body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#ECEAF6; --surface:#F8F7FD; --ink:#23173A; --muted:#5E5578;
+  --sun:#E39A2E; --sun-ink:#2A1A05; --line:#CFCAE3; --err:#B3261E;
+  --display:"Gloock", Georgia, serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#17112A;--surface:#221A3A;--ink:#EDE9FA;--muted:#B3A9D0;--sun:#F2B552;--line:#3A3058;--soft:#2C2349;--sea:#5FB3AE;--err:#FF8A80}}
-:root[data-theme="dark"]{--bg:#17112A;--surface:#221A3A;--ink:#EDE9FA;--muted:#B3A9D0;--sun:#F2B552;--line:#3A3058;--soft:#2C2349;--sea:#5FB3AE;--err:#FF8A80}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#17112A;--surface:#221A3A;--ink:#EDE9FA;--muted:#B3A9D0;--sun:#F2B552;--line:#3A3058;--err:#FF8A80}
+}
+:root[data-theme="dark"]{--bg:#17112A;--surface:#221A3A;--ink:#EDE9FA;--muted:#B3A9D0;--sun:#F2B552;--line:#3A3058;--err:#FF8A80}
 *,*::before,*::after{box-sizing:inherit}
 [hidden]{display:none!important}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
 :focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
 .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
-header{padding:18px 0}
-.bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.logo{font-family:var(--display);font-size:1.5rem;display:flex;align-items:center;gap:10px;cursor:pointer;background:none;border:0;color:inherit;padding:0}
+header{padding:20px 0}
+.logo{font-family:var(--display);font-size:1.5rem;display:flex;align-items:center;gap:10px}
 .logo svg{width:28px;height:28px}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.1;margin:0}
-h1{font-size:clamp(2.1rem,5.5vw,3.4rem);margin-bottom:12px}
-h2{font-size:clamp(1.6rem,4vw,2.1rem);margin-bottom:10px}
-.lead{color:var(--muted);font-size:1.1rem;margin:0 0 26px;max-width:36ch}
-.muted{color:var(--muted)}
-p{margin:0}
-.btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:600;border-radius:999px;padding:15px 26px;background:var(--sun);color:var(--sun-ink);width:100%;text-align:center;display:block;text-decoration:none}
-.btn:disabled{opacity:.6;cursor:wait}
-.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
-.btn.small{width:auto;padding:9px 18px;font-size:.95rem;display:inline-block}
-.link{background:none;border:0;font:inherit;color:var(--muted);text-decoration:underline;cursor:pointer;padding:10px 0}
-.stack{display:grid;gap:14px;max-width:440px}
-label span,.lbl{display:block;font-weight:600;font-size:.92rem;margin-bottom:5px}
-label small{font-weight:400;color:var(--muted)}
-input[type=text],input[type=email],input[type=tel],select{font:inherit;color:var(--ink);background-color:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;min-height:50px}
-select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:36px}
-select:disabled{opacity:.55}
-input:focus,select:focus{border-color:var(--sun);outline:none}
-.err{color:var(--err);font-size:.92rem;min-height:1.2em}
+main{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:20px 0 60px}
+@media (max-width:820px){main{grid-template-columns:1fr;gap:20px;padding-top:0}}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(2.3rem,5.5vw,3.6rem);line-height:1.08;margin:0 0 14px}
+.lead{color:var(--muted);font-size:1.1rem;margin:0 0 28px;max-width:32ch}
+form{display:grid;gap:14px;max-width:420px}
 .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label span{display:block;font-weight:600;font-size:.92rem;margin-bottom:5px}
+label small{font-weight:400;color:var(--muted)}
+select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),linear-gradient(135deg,var(--muted) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat;padding-right:36px!important}
+input[type=text],input[type=email],input[type=tel],input[type=date],input[type=time],select{
+  font:inherit;color:var(--ink);background-color:var(--surface);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;min-height:48px}
+input:focus{border-color:var(--sun);outline:none}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:.88rem;color:var(--muted)}
+.check input{width:18px;height:18px;margin-top:2px;accent-color:var(--sun);flex:none}
+.btn:disabled{opacity:.6;cursor:wait}
+.btn{appearance:none;border:0;cursor:pointer;font:inherit;font-weight:600;border-radius:999px;padding:15px 26px;background:var(--sun);color:var(--sun-ink);width:100%}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line);width:auto}
+.tel{display:grid;grid-template-columns:118px 1fr;gap:8px}
+fieldset.dt{border:0;margin:0;padding:0;min-width:0}
+fieldset.dt legend{font-weight:600;font-size:.92rem;margin-bottom:5px;padding:0}
+fieldset.dt legend small{font-weight:400;color:var(--muted)}
 .tri{display:grid;grid-template-columns:.8fr 1.4fr 1fr;gap:10px}
 .tri.mdy{grid-template-columns:1.4fr .8fr 1fr}
 .duo{display:grid;grid-template-columns:1.6fr 1fr;gap:10px}
-.tel{display:grid;grid-template-columns:118px 1fr;gap:8px}
-.hint{display:block;color:var(--muted);font-size:.84rem;margin-top:5px}
-.chips{display:flex;flex-wrap:wrap;gap:10px}
-.chip input{position:absolute;opacity:0;pointer-events:none}
-.chip span{display:inline-block;padding:9px 16px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--line);cursor:pointer;user-select:none;font-weight:500;margin:0;font-size:.95rem}
-.chip input:checked+span{background:var(--sea);color:#fff;box-shadow:none}
-.chip input:focus-visible+span{outline:3px solid var(--sun);outline-offset:2px}
-.check{display:flex;gap:10px;align-items:flex-start;font-size:.95rem}
-.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--sea);flex:none}
-.view{padding:10px 0 60px;animation:rise .4s ease}
+.hint{display:block;color:var(--muted);font-size:.82rem;margin-top:5px}
+select:disabled{opacity:.55}
+.err{color:var(--err);font-size:.9rem;min-height:1.2em;margin:0}
+#result{display:none;max-width:420px}
+#result.show{display:block;animation:rise .5s ease}
 @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
-
-/* inicio */
-.hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+#result p{color:var(--muted);margin:0 0 22px}
+#result .btn{margin-bottom:10px}
+.sign{font-family:var(--display);font-size:2.2rem;margin:0 0 6px;color:var(--ink)}
+#rDesc{color:var(--ink);font-size:1.1rem}
 .wheel-box{max-width:440px;width:100%;justify-self:center}
+@media (max-width:820px){.wheel-box{max-width:240px;order:-1}}
 #wheel{width:100%;height:auto;display:block}
-#wheelG{transform-box:view-box;transform-origin:50% 50%;transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
-.seg{fill:var(--surface);stroke:var(--line);transition:fill .6s}.seg.on{fill:var(--sun)}
-.glyph{font-size:22px;fill:var(--ink);text-anchor:middle;dominant-baseline:central;font-family:"Segoe UI Symbol","Apple Symbols","Noto Sans Symbols 2",var(--body)}.glyph.on{fill:var(--sun-ink)}
+.seg{fill:var(--surface);stroke:var(--line);transition:fill .6s}
+.seg.on{fill:var(--sun)}
+.glyph{font-size:22px;fill:var(--ink);text-anchor:middle;dominant-baseline:central;font-family:"Segoe UI Symbol","Apple Symbols","Noto Sans Symbols 2",var(--body)}
+.glyph.on{fill:var(--sun-ink)}
 .hub{fill:var(--bg);stroke:var(--line)}
 .hub-name{font-family:var(--display);font-size:30px;fill:var(--ink);text-anchor:middle}
 .hub-sub{font-size:13px;fill:var(--muted);text-anchor:middle;font-family:var(--body)}
 .pointer{fill:var(--sun)}
-@media (max-width:820px){.hero{grid-template-columns:1fr;gap:16px}.wheel-box{max-width:240px;order:-1}}
-
-/* pasos */
-.paso{max-width:460px}
-.progress{height:6px;border-radius:999px;background:var(--soft);overflow:hidden;margin:6px 0 26px}
-.progress i{display:block;height:100%;background:var(--sun);transition:width .4s ease}
-.back{background:none;border:0;color:var(--muted);font:inherit;cursor:pointer;padding:0;margin-bottom:8px}
-
-/* adelanto */
-.big-sign{font-family:var(--display);font-size:clamp(2.6rem,9vw,3.8rem);line-height:1.05}
-.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
-.trio div{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:12px}
-.trio b{display:block;font-family:var(--display);font-weight:400;font-size:1.2rem}
-.trio small{color:var(--muted);font-size:.8rem}
-.locked{position:relative;margin:18px 0 22px}
-.locked .cards{filter:blur(5px);pointer-events:none;user-select:none;opacity:.85}
-.lock-msg{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:20px}
-.lock-msg div{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:16px 20px;font-weight:600;box-shadow:0 10px 30px rgba(35,23,58,.12)}
-
-/* login */
-.gbox{min-height:44px;display:flex;justify-content:flex-start}
-.or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.9rem;margin:6px 0}
-.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
-#cCode{font-family:var(--display);font-size:2rem;letter-spacing:.5em;text-align:center}
-
-/* mi espacio */
-.tabs{display:flex;gap:6px;border-bottom:1.5px solid var(--line);margin:18px 0 22px;overflow-x:auto}
-.tab{background:none;border:0;font:inherit;font-weight:600;color:var(--muted);padding:10px 14px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1.5px;white-space:nowrap}
-.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--sun)}
-.banner{background:var(--surface);border-left:3px solid var(--sun);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.97rem}
-.destacado{font-family:var(--display);font-size:1.4rem;line-height:1.3;margin:4px 0 18px}
-.alerta{background:var(--surface);border-left:3px solid var(--sea);padding:10px 14px;margin:0 0 18px;font-size:.95rem;border-radius:8px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.btn.small{padding:9px 18px;font-size:.95rem;width:auto}
+#goHome{cursor:pointer}
+.view{padding:20px 22px 60px;max-width:760px}
+.view form{max-width:420px}
+.notice{background:var(--surface);border:1.5px solid var(--line);border-radius:14px;padding:18px;max-width:420px;margin-top:10px}
+.destacado{font-family:var(--display);font-size:1.4rem;line-height:1.3;margin:6px 0 18px}
+.alerta{background:var(--surface);border-left:3px solid var(--sun);padding:10px 14px;margin:0 0 18px;font-size:.95rem}
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media (max-width:600px){.cards{grid-template-columns:1fr}}
 .card{background:var(--surface);border:1.5px solid var(--line);border-radius:16px;padding:18px}
-.card h3{font-size:1.3rem;margin:0 0 6px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
-.card .st{color:var(--sun);letter-spacing:2px;font-size:1rem;white-space:nowrap;font-family:var(--body)}
-.card p{font-size:.98rem}
-.card small{display:block;color:var(--muted);font-size:.8rem;margin-top:8px}
+.card h3{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:0 0 4px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.card .st{color:var(--sun);letter-spacing:2px;font-size:1rem;white-space:nowrap}
+.card p{margin:0;font-size:.98rem}
 .days{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:22px 0}
 .days div{border-top:1.5px solid var(--line);padding-top:10px}
-.days b,.consejo b{display:block;font-family:var(--display);font-weight:400;font-size:1.35rem}
-.days b{text-transform:capitalize}
-.explica{background:var(--surface);border-radius:14px;padding:14px 16px;margin:18px 0}
-.sec-title{color:var(--muted);font-size:.85rem;letter-spacing:.02em;margin:24px 0 10px}
-.cuenta dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0 0 22px}
-.cuenta dt{color:var(--muted)}
-.cuenta dd{margin:0;font-weight:500;overflow-wrap:anywhere}
-.danger{color:var(--err)}
-
-/* aviso */
+.days b,.consejo b{display:block;font-family:var(--display);font-weight:400;font-size:1.35rem;text-transform:capitalize}
+.consejo b{text-transform:none}
+.muted{color:var(--muted)}
 .modal{position:fixed;inset:0;background:rgba(23,17,42,.55);display:none;align-items:flex-end;justify-content:center;padding:16px;padding-bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:10}
 .modal.show{display:flex}
 @media (min-width:600px){.modal{align-items:center}}
 .sheet{background:var(--surface);color:var(--ink);border-radius:20px;padding:26px;max-width:420px;width:100%;animation:rise .3s ease}
-.sheet h2{font-size:1.6rem}
+.sheet h2{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:0 0 10px}
 .sheet p{margin:0 0 14px;color:var(--muted);font-size:.97rem}
-.sheet .btn{margin-bottom:6px}
-.spinner{display:flex;align-items:center;gap:12px;color:var(--muted);padding:30px 0}
-.spinner::before{content:"";width:22px;height:22px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--sun);animation:spin 1s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-footer{padding:10px 0 36px;color:var(--muted);font-size:.85rem}
-footer a{color:inherit}
+.sheet details{font-size:.88rem;color:var(--muted);margin-bottom:18px}
+.sheet summary{cursor:pointer;color:var(--ink);font-weight:600}
+.sheet details p{margin:8px 0 0;font-size:.88rem}
+.sheet .btn{margin-bottom:8px}
+.link{background:none;border:0;font:inherit;color:var(--muted);text-decoration:underline;cursor:pointer;width:100%;padding:8px}
 @media (max-width:600px){
   .row{grid-template-columns:1fr}
-  select{padding-left:10px;padding-right:26px;background-position:calc(100% - 15px) 50%,calc(100% - 9px) 50%}
-  .trio{grid-template-columns:1fr}
+  form,#result{max-width:none}
+  .tri,.tri.mdy{gap:8px}
+  select{padding-left:10px!important;padding-right:26px!important;background-position:calc(100% - 15px) 50%,calc(100% - 9px) 50%!important}
 }
+@media (max-width:360px){
+  .tri,.tri.mdy,.duo{grid-template-columns:1fr}
+}
+footer{padding:0 0 36px;color:var(--muted);font-size:.85rem}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+.panel{max-width:420px;animation:rise .4s ease}
+.weekbox{margin-top:18px;padding-top:18px;border-top:1.5px solid var(--line);text-align:center}
+.weekbox small{display:block;color:var(--muted);font-size:.85rem;margin-top:8px}
+.badge{display:inline-block;background:var(--surface);border:1.5px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.85rem;font-weight:600;margin-bottom:12px}
+.panel h2{font-family:var(--display);font-weight:400;font-size:1.6rem;margin:0 0 6px}
+.gbox{min-height:44px;margin:16px 0 4px}
+.or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.9rem;margin:12px 0}
+.or::before,.or::after{content:"";flex:1;height:1px;background:var(--line)}
+.stack{display:grid;gap:12px}
+#cCode{font-family:var(--display);font-size:2rem;letter-spacing:.5em;text-align:center}
+.back{background:none;border:0;color:var(--muted);font:inherit;cursor:pointer;padding:0;margin-bottom:10px}
+.tabs{display:flex;gap:6px;border-bottom:1.5px solid var(--line);margin:14px 0 22px;overflow-x:auto}
+.tab{background:none;border:0;font:inherit;font-weight:600;color:var(--muted);padding:10px 14px;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-1.5px;white-space:nowrap}
+.tab[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--sun)}
+.banner{background:var(--surface);border-left:3px solid var(--sun);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.97rem}
+.card small{display:block;color:var(--muted);font-size:.8rem;margin-top:8px}
+.big-sign{font-family:var(--display);font-size:clamp(2.4rem,8vw,3.4rem);line-height:1.05}
+.explica{background:var(--surface);border-radius:14px;padding:14px 16px;margin:18px 0}
+.sec-title{color:var(--muted);font-size:.85rem;letter-spacing:.02em;margin:24px 0 10px}
+.cuenta dl{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;margin:0 0 22px}
+.cuenta dt{color:var(--muted)}.cuenta dd{margin:0;font-weight:500;overflow-wrap:anywhere}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;padding:9px 16px;border-radius:999px;box-shadow:inset 0 0 0 1.5px var(--line);cursor:pointer;user-select:none;font-weight:500;font-size:.95rem}
+.chip input:checked+span{background:var(--sea);color:#fff;box-shadow:none}
+.danger{color:var(--err)!important}
+.timeline{display:grid;gap:10px;margin-bottom:6px}
+.mom{background:var(--surface);border:1.5px solid var(--line);border-left:4px solid var(--line);border-radius:12px;padding:12px 14px}
+.mom.bueno{border-left-color:var(--sea)}.mom.reto{border-left-color:var(--sun)}.mom.neutro{border-left-color:var(--muted)}
+.mom .mdia{display:block;font-size:.8rem;color:var(--muted);font-weight:600;margin-bottom:2px}
+.mom b{display:block;font-family:var(--display);font-weight:400;font-size:1.15rem}
+.mom p{margin:4px 0 0;font-size:.95rem}
+small.muted{display:block;margin-top:4px}
+.spinner{display:flex;align-items:center;gap:12px;color:var(--muted);padding:40px 0}
+.spinner::before{content:"";width:22px;height:22px;border-radius:50%;border:3px solid var(--line);border-top-color:var(--sun);animation:spin 1s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.lbl{display:block;font-weight:600;font-size:.92rem;margin-bottom:5px}
+footer a{color:inherit}
+</style>
 </head>
-<body>
-<header class="wrap bar">
-  <button class="logo" id="goHome" type="button" aria-label="Cielo Mío, inicio">
+<body><header class="wrap bar">
+  <div class="logo" id="goHome" role="link" tabindex="0">
     <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M20 6a11 11 0 1 0 0 20a9 9 0 1 1 0-20z" fill="var(--sun)"/></svg>
     Cielo Mío
-  </button>
-  <button class="btn ghost small" type="button" id="topBtn">Entrar</button>
+  </div>
+  <button class="btn ghost small" type="button" id="topBtn">Mi semana</button>
 </header>
 
-<main class="wrap">
-  <!-- INICIO -->
-  <section class="view hero" id="vInicio">
-    <div>
+<main class="wrap" id="homeView">
+  <div>
+    <div id="intro">
       <h1>Descubre tu carta astral y lo que depara tu destino</h1>
-      <p class="lead">Responde 3 preguntas y mira qué dicen los astros de ti. Gratis.</p>
-      <div class="stack">
-        <button class="btn" type="button" id="startBtn">Empezar</button>
-        <button class="link" type="button" id="haveAccount">Ya tengo cuenta</button>
-      </div>
+      <p class="lead">Déjanos tus datos y recibe gratis tu carta y tu lectura de cada semana.</p>
     </div>
-    <div class="wheel-box">
-      <svg id="wheel" viewBox="-200 -210 400 410" role="img" aria-label="Rueda del zodiaco">
-        <path class="pointer" d="M-10 -206 L10 -206 L0 -190 Z"/>
-        <g id="wheelG"></g>
-        <circle class="hub" r="112"/>
-        <text class="hub-name" id="hubName" y="6">Tu signo</text>
-        <text class="hub-sub" id="hubSub" y="34">Descúbrelo</text>
-      </svg>
-    </div>
-  </section>
 
-  <!-- PASO 1: LUGAR -->
-  <section class="view paso" id="vLugar" hidden>
-    <button class="back" type="button" data-go="vInicio">‹ Volver</button>
-    <div class="progress"><i style="width:33%"></i></div>
-    <p class="banner" id="lugarNota" hidden>Para crear tu cuenta, primero cuéntanos dónde y cuándo naciste.</p>
-    <h2>¿Dónde naciste?</h2>
-    <p class="muted" style="margin-bottom:20px">Con tu lugar calculamos cómo estaba el cielo ese día.</p>
-    <div class="stack">
-      <label><span>País</span><select id="fCountry"></select></label>
-      <label><span>Ciudad</span><select id="fCity"></select></label>
+    <form id="signup" novalidate>
+      <label><span>Tu nombre</span><input type="text" id="fName" autocomplete="given-name"></label>
+      <div class="row">
+        <label><span>País donde naciste</span><select id="fCountry"></select></label>
+        <label><span>Ciudad</span><select id="fCity"></select></label>
+      </div>
       <label id="otherWrap" hidden><span>Escribe tu ciudad</span><input type="text" id="fOther"></label>
-      <p class="err" id="e1" role="alert"></p>
-      <button class="btn" type="button" id="next1">Siguiente</button>
-    </div>
-  </section>
-
-  <!-- PASO 2: FECHA -->
-  <section class="view paso" id="vFecha" hidden>
-    <button class="back" type="button" data-go="vLugar">‹ Volver</button>
-    <div class="progress"><i style="width:66%"></i></div>
-    <h2>¿Cuándo naciste?</h2>
-    <p class="muted" style="margin-bottom:20px" id="dateHint">Día, mes y año.</p>
-    <div class="stack">
-      <div class="tri" id="dateRow">
-        <select id="fDay" aria-label="Día"></select>
-        <select id="fMonth" aria-label="Mes"></select>
-        <select id="fYear" aria-label="Año"></select>
+      <fieldset class="dt">
+        <legend>Fecha de nacimiento</legend>
+        <div class="tri" id="dateRow">
+          <select id="fDay" aria-label="Día"></select>
+          <select id="fMonth" aria-label="Mes"></select>
+          <select id="fYear" aria-label="Año"></select>
+        </div>
+        <small class="hint" id="dateHint">Primero elige tu país</small>
+      </fieldset>
+      <fieldset class="dt">
+        <legend>Hora de nacimiento <small>(si la sabes)</small></legend>
+        <div class="duo">
+          <select id="fHour" aria-label="Hora"></select>
+          <select id="fMin" aria-label="Minutos"></select>
+        </div>
+      </fieldset>
+      <div class="row">
+        <label><span>Correo</span><input type="email" id="fEmail" autocomplete="email"></label>
+        <div><label for="fPhone"><span>Teléfono</span></label>
+          <div class="tel"><select id="fCode" aria-label="Código de país"></select><input type="tel" id="fPhone" autocomplete="tel-national" inputmode="tel" placeholder="Tu número"></div>
+        </div>
       </div>
-      <p class="err" id="e2" role="alert"></p>
-      <button class="btn" type="button" id="next2">Siguiente</button>
-    </div>
-  </section>
-
-  <!-- PASO 3: HORA -->
-  <section class="view paso" id="vHora" hidden>
-    <button class="back" type="button" data-go="vFecha">‹ Volver</button>
-    <div class="progress"><i style="width:100%"></i></div>
-    <h2>¿A qué hora naciste?</h2>
-    <p class="muted" style="margin-bottom:20px">Si no la sabes, no pasa nada. Con la hora calculamos tu ascendente.</p>
-    <div class="stack">
-      <div class="duo">
-        <select id="fHour" aria-label="Hora"></select>
-        <select id="fMin" aria-label="Minutos"></select>
+      <p class="err" id="fErr" role="alert"></p>
+      <button class="btn" type="submit">Recibir mi carta gratis</button>
+      <div class="weekbox">
+        <button class="btn ghost" type="button" id="weekLink">¿Qué pasará esta semana? 🔮</button>
+        <small>🔒 Solo para usuarios registrados</small>
       </div>
-      <p class="err" id="e3" role="alert"></p>
-      <button class="btn" type="button" id="next3">Ver mi resultado</button>
-    </div>
-  </section>
+    </form>
 
-  <!-- ADELANTO -->
-  <section class="view paso" id="vAdelanto" hidden>
-    <p class="muted">Tu signo es</p>
-    <div class="big-sign" id="aSign"></div>
-    <p style="margin-top:8px;font-size:1.1rem" id="aFrase"></p>
-    <div class="trio" id="aTrio"></div>
-    <div class="locked">
-      <div class="cards" aria-hidden="true">
-        <div class="card"><h3>❤️ Amor <span class="st">★★★★☆</span></h3><p>Buena energía en el amor. Las conversaciones fluyen y es fácil acercarte a quien te importa.</p></div>
-        <div class="card"><h3>💼 Trabajo <span class="st">★★★☆☆</span></h3><p>Semana normal en el trabajo. Avanza con lo pendiente y mantén el orden.</p></div>
+    <div class="panel" id="donePanel" hidden>
+      <h2 id="dTitle"></h2>
+      <div class="big-sign" id="dSign"></div>
+      <p id="dFrase" style="margin:6px 0 14px"></p>
+      <p class="muted" id="dText" style="margin-bottom:20px"></p>
+      <div class="stack">
+        <button class="btn ghost" type="button" id="dWeek">¿Qué pasará esta semana? 🔮</button>
+        <button class="link" type="button" id="dAgain">Registrar a otra persona</button>
       </div>
-      <div class="lock-msg"><div>🔒 Tu carta completa y tu semana te esperan</div></div>
     </div>
-    <div class="stack">
-      <button class="btn" type="button" id="toLogin">Ver mi carta completa y mi semana</button>
-      <p class="muted" style="font-size:.9rem;text-align:center">Gratis · 6 meses de Premium de regalo</p>
-    </div>
-  </section>
 
-  <!-- LOGIN -->
-  <section class="view paso" id="vLogin" hidden>
-    <button class="back" type="button" id="loginBack">‹ Volver</button>
-    <h2 id="lTitle">Entra para ver tu carta</h2>
-    <p class="muted" style="margin-bottom:20px">Sin contraseñas. Elige cómo prefieres entrar.</p>
-    <div class="stack">
+    <div class="panel" id="loginPanel" hidden>
+      <button class="back" type="button" id="loginBack">‹ Volver</button>
+      <span class="badge">🔒 Solo para usuarios registrados</span>
+      <h2 id="lTitle">¿Qué pasará esta semana?</h2>
+      <p class="muted" id="lSub">Entra con tu correo, sin contraseñas. Si pediste tu carta pero aún no te registras, al confirmar tu correo quedas registrado.</p>
       <div class="gbox" id="gBtn"></div>
-      <div class="or">o</div>
+      <div class="or">o recibe un código</div>
       <div id="codeStep1" class="stack">
-        <label><span>Recibe un código en tu correo</span><input type="email" id="lEmail" autocomplete="email" placeholder="tucorreo@ejemplo.com"></label>
+        <input type="email" id="lEmail" autocomplete="email" placeholder="tucorreo@ejemplo.com" aria-label="Tu correo">
         <button class="btn ghost" type="button" id="sendCode">Enviarme un código</button>
       </div>
       <div id="codeStep2" class="stack" hidden>
-        <p id="codeSent" class="muted"></p>
-        <label><span>Escribe el código de 6 dígitos</span><input type="text" id="cCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6"></label>
+        <p class="muted" id="codeSent"></p>
+        <input type="text" id="cCode" inputmode="numeric" autocomplete="one-time-code" maxlength="6" aria-label="Código de 6 dígitos" placeholder="······">
         <button class="btn" type="button" id="checkCode">Entrar</button>
         <button class="link" type="button" id="otherMail">Usar otro correo</button>
       </div>
       <p class="err" id="eL" role="alert"></p>
     </div>
-  </section>
+  </div>
 
-  <!-- ÚLTIMO PASO (solo nuevos) -->
-  <section class="view paso" id="vDatos" hidden>
-    <h2>Último paso</h2>
-    <p class="muted" style="margin-bottom:20px" id="dMail"></p>
-    <div class="stack">
-      <label><span>Tu nombre</span><input type="text" id="fName" autocomplete="given-name"></label>
-      <div><label for="fPhone"><span>Teléfono</span></label>
-        <div class="tel"><select id="fCode" aria-label="Código de país"></select><input type="tel" id="fPhone" autocomplete="tel-national" inputmode="tel" placeholder="Tu número"></div>
-      </div>
-      <fieldset style="border:0;padding:0;margin:0;min-width:0"><legend class="lbl">¿Qué te interesa más? <small class="muted">(elige los que quieras)</small></legend>
-        <div class="chips" id="fInt"></div>
-      </fieldset>
-      <label class="check"><input type="checkbox" id="fPub" checked> Quiero recibir también noticias de negocios y finanzas gratis</label>
-      <p class="err" id="e4" role="alert"></p>
-      <button class="btn" type="button" id="finish">Ver mi carta</button>
-    </div>
-  </section>
-
-  <!-- MI ESPACIO -->
-  <section class="view" id="vEspacio" hidden>
-    <p class="muted" id="hello"></p>
-    <div class="tabs" role="tablist">
-      <button class="tab" role="tab" data-tab="tSemana" aria-selected="true">Semana</button>
-      <button class="tab" role="tab" data-tab="tCarta" aria-selected="false">Carta</button>
-      <button class="tab" role="tab" data-tab="tCuenta" aria-selected="false">Cuenta</button>
-    </div>
-    <div id="welcome" class="banner" hidden></div>
-    <div id="tSemana" role="tabpanel"></div>
-    <div id="tCarta" role="tabpanel" hidden></div>
-    <div id="tCuenta" role="tabpanel" class="cuenta" hidden></div>
-  </section>
-
-  <section class="view" id="vCargando" hidden><div class="spinner" id="loadMsg">Cargando…</div></section>
+  <div class="wheel-box">
+    <svg id="wheel" viewBox="-200 -210 400 410" role="img" aria-label="Rueda del zodiaco">
+      <path class="pointer" d="M-10 -206 L10 -206 L0 -190 Z"/>
+      <g id="wheelG"></g>
+      <circle class="hub" r="112"/>
+      <text class="hub-name" id="hubName" y="6">Tu signo</text>
+      <text class="hub-sub" id="hubSub" y="34">Elige tu fecha</text>
+    </svg>
+  </div>
 </main>
+
+<section class="wrap view" id="espacioView" hidden>
+  <p class="muted" id="hello"></p>
+  <div class="tabs" role="tablist">
+    <button class="tab" role="tab" data-tab="tSemana" aria-selected="true">Semana</button>
+    <button class="tab" role="tab" data-tab="tCarta" aria-selected="false">Carta</button>
+    <button class="tab" role="tab" data-tab="tCuenta" aria-selected="false">Cuenta</button>
+  </div>
+  <div id="welcome" class="banner" hidden></div>
+  <div id="tSemana" role="tabpanel"></div>
+  <div id="tCarta" role="tabpanel" hidden></div>
+  <div id="tCuenta" role="tabpanel" class="cuenta" hidden></div>
+</section>
+
+<section class="wrap view" id="cargandoView" hidden><div class="spinner" id="loadMsg">Cargando…</div></section>
 
 <div class="modal" id="consent" role="dialog" aria-modal="true" aria-labelledby="cTitle">
   <div class="sheet">
     <h2 id="cTitle">Un último paso ✨</h2>
     <p>Para enviarte tu carta astral y tus lecturas usaremos tu correo y tu teléfono. También te enviaremos novedades de Cielo Mío y de nuestras otras publicaciones gratuitas.</p>
-    <p style="font-size:.88rem">Al aceptar, estás de acuerdo con las <a href="terminos.html" target="_blank">condiciones</a> y la <a href="privacidad.html" target="_blank">política de privacidad</a>. Puedes darte de baja cuando quieras.</p>
-    <button class="btn" type="button" id="cOk">Aceptar y ver mi carta</button>
-    <button class="link" type="button" id="cNo" style="width:100%">Ahora no</button>
+    <label class="check" style="margin-bottom:12px"><input type="checkbox" id="fPub" checked> Quiero recibir también noticias de negocios y finanzas gratis</label>
+    <p style="font-size:.86rem">Al aceptar, estás de acuerdo con las <a href="terminos.html" target="_blank">condiciones</a> y la <a href="privacidad.html" target="_blank">política de privacidad</a>.</p>
+    <button class="btn" type="button" id="cOk">Aceptar y recibir mi carta</button>
+    <button class="link" type="button" id="cNo">Ahora no</button>
   </div>
 </div>
 
 <footer class="wrap">Contenido para entretenimiento y autoconocimiento · <a href="privacidad.html">Privacidad</a> · <a href="terminos.html">Condiciones</a></footer>
+
 <script>
 (function(){
-  const SCRIPT_URL="https://script.google.com/macros/s/AKfycbzU5dRFMGiuQl5F0rKLoZNhAxsc1tbOJXSjYh3X8jEOs5UVe6O8BaTDCcr-0Z0QfEMyWg/exec";
-  const GOOGLE_CLIENT_ID="386281758322-vkq15r8nt6r46c7q4uifcu0aoc6e6gn5.apps.googleusercontent.com";
+  const SIGNS=[
+    {n:"Aries",g:"♈",s:[3,21],t:"Valiente y directo. Te gusta empezar cosas y ganar."},
+    {n:"Tauro",g:"♉",s:[4,20],t:"Constante y práctico. Disfrutas lo bueno de la vida."},
+    {n:"Géminis",g:"♊",s:[5,21],t:"Curioso y conversador. Aprendes rápido."},
+    {n:"Cáncer",g:"♋",s:[6,21],t:"Protector y leal. Cuidas a los tuyos como nadie."},
+    {n:"Leo",g:"♌",s:[7,23],t:"Generoso y con brillo propio. Naciste para liderar."},
+    {n:"Virgo",g:"♍",s:[8,23],t:"Ordenado y detallista. Haces las cosas bien."},
+    {n:"Libra",g:"♎",s:[9,23],t:"Amable y justo. Buscas el equilibrio en todo."},
+    {n:"Escorpio",g:"♏",s:[10,23],t:"Intenso y profundo. Cuando quieres algo, lo logras."},
+    {n:"Sagitario",g:"♐",s:[11,22],t:"Optimista y aventurero. Te encanta la libertad."},
+    {n:"Capricornio",g:"♑",s:[12,22],t:"Ambicioso y responsable. Construyes a largo plazo."},
+    {n:"Acuario",g:"♒",s:[1,20],t:"Original e independiente. Piensas distinto."},
+    {n:"Piscis",g:"♓",s:[2,19],t:"Sensible e intuitivo. Tienes mucha imaginación."}
+  ];
   const $=id=>document.getElementById(id);
-  const opt=(v,t,dis)=>{const o=document.createElement("option");o.value=v;o.textContent=t;if(dis){o.disabled=true;o.selected=true;}return o;};
-  const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
-  const KEY="cielomio_sesion";
-  const store={get(){try{return localStorage.getItem(KEY)}catch(e){return null}},set(v){try{localStorage.setItem(KEY,v)}catch(e){}},del(){try{localStorage.removeItem(KEY)}catch(e){}}};
-  async function api(body){
-    const r=await fetch(SCRIPT_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(body)});
-    return r.json();
+  function signIndex(m,d){
+    const v=m*100+d;
+    for(let i=0;i<12;i++){
+      const a=SIGNS[i].s,b=SIGNS[(i+1)%12].s,va=a[0]*100+a[1],vb=b[0]*100+b[1];
+      if(va<vb?(v>=va&&v<vb):(v>=va||v<vb)) return i;
+    }
+    return 0;
   }
-  const ERR={limite:"Pediste muchos códigos. Espera una hora e inténtalo de nuevo.",vencido:"El código venció. Pide uno nuevo.",
-    intentos:"Demasiados intentos. Pide un código nuevo.",google:"No pudimos verificar tu cuenta de Google. Inténtalo de nuevo.",
-    envio:"No pudimos enviar el correo. Inténtalo en unos minutos.",correo:"Revisa tu correo: falta la @ o el dominio.",
-    permiso:"Tu acceso venció. Vuelve a entrar.",interno:"Algo falló. Inténtalo de nuevo en un momento."};
+  function parseDate(v){const [y,m,d]=(v||"").split("-").map(Number);return y&&m&&d?{y,m,d}:null;}
 
-  // ---------- Navegación ----------
-  const VISTAS=["vInicio","vLugar","vFecha","vHora","vAdelanto","vLogin","vDatos","vEspacio","vCargando"];
-  function show(v){VISTAS.forEach(x=>$(x).hidden=x!==v);window.scrollTo(0,0);
-    $("topBtn").hidden=v==="vLogin"||v==="vCargando";$("topBtn").textContent=store.get()?"Mi espacio":"Entrar";}
-  document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>show(b.dataset.go)));
-  $("goHome").addEventListener("click",()=>store.get()?abrirEspacio():show("vInicio"));
-  $("topBtn").addEventListener("click",()=>store.get()?abrirEspacio():irLogin("cuenta"));
-  $("startBtn").addEventListener("click",()=>show("vLugar"));
-  $("haveAccount").addEventListener("click",()=>irLogin("cuenta"));
+  // Rueda
+  const g=$("wheelG"),NS="http://www.w3.org/2000/svg",R1=192,R0=118;
+  const pt=(r,deg)=>{const a=deg*Math.PI/180;return [r*Math.sin(a),-r*Math.cos(a)];};
+  SIGNS.forEach((s,i)=>{
+    const c=i*30,[x1,y1]=pt(R1,c-15),[x2,y2]=pt(R1,c+15),[x3,y3]=pt(R0,c+15),[x4,y4]=pt(R0,c-15);
+    const p=document.createElementNS(NS,"path");
+    p.setAttribute("d",`M${x1} ${y1} A${R1} ${R1} 0 0 1 ${x2} ${y2} L${x3} ${y3} A${R0} ${R0} 0 0 0 ${x4} ${y4} Z`);
+    p.setAttribute("class","seg");p.id="seg"+i;g.appendChild(p);
+    const t=document.createElementNS(NS,"text");
+    t.setAttribute("class","glyph");t.id="gl"+i;
+    t.setAttribute("transform",`rotate(${c}) translate(0,-155)`);
+    t.textContent=s.g+"\uFE0E";g.appendChild(t);
+  });
+  let cur=0,sel=-1,anim=null,ang=0;
+  function girar(dest){
+    if(anim)cancelAnimationFrame(anim);
+    const ini=ang,t0=performance.now(),dur=matchMedia("(prefers-reduced-motion: reduce)").matches?0:1300;
+    const paso=t=>{const k=dur?Math.min(1,(t-t0)/dur):1,e=1-Math.pow(1-k,3);ang=ini+(dest-ini)*e;g.setAttribute("transform","rotate("+ang+")");if(k<1)anim=requestAnimationFrame(paso);};
+    anim=requestAnimationFrame(paso);
+  }
+  function showSign(i){
+    $("hubName").textContent=SIGNS[i].n;$("hubSub").textContent="Tu signo";
+    if(i===sel) return;
+    if(sel>=0){$("seg"+sel).classList.remove("on");$("gl"+sel).classList.remove("on");}
+    sel=i;$("seg"+i).classList.add("on");$("gl"+i).classList.add("on");
+    cur+=((-i*30-cur)%360+540)%360-180;
+    girar(cur);
+  }
 
-  // ---------- Rueda ----------
-  const SIGNS=[["Aries","♈",[3,21]],["Tauro","♉",[4,20]],["Géminis","♊",[5,21]],["Cáncer","♋",[6,21]],["Leo","♌",[7,23]],["Virgo","♍",[8,23]],
-    ["Libra","♎",[9,23]],["Escorpio","♏",[10,23]],["Sagitario","♐",[11,22]],["Capricornio","♑",[12,22]],["Acuario","♒",[1,20]],["Piscis","♓",[2,19]]];
-  function signIndex(m,d){const v=m*100+d;for(let i=0;i<12;i++){const a=SIGNS[i][2],b=SIGNS[(i+1)%12][2],va=a[0]*100+a[1],vb=b[0]*100+b[1];if(va<vb?(v>=va&&v<vb):(v>=va||v<vb))return i;}return 0;}
-  const g=$("wheelG"),NS="http://www.w3.org/2000/svg",R1=192,R0=118,pt=(r,deg)=>{const a=deg*Math.PI/180;return [r*Math.sin(a),-r*Math.cos(a)];};
-  SIGNS.forEach((s,i)=>{const c=i*30,[x1,y1]=pt(R1,c-15),[x2,y2]=pt(R1,c+15),[x3,y3]=pt(R0,c+15),[x4,y4]=pt(R0,c-15);
-    const p=document.createElementNS(NS,"path");p.setAttribute("d",`M${x1} ${y1} A${R1} ${R1} 0 0 1 ${x2} ${y2} L${x3} ${y3} A${R0} ${R0} 0 0 0 ${x4} ${y4} Z`);p.setAttribute("class","seg");p.id="seg"+i;g.appendChild(p);
-    const t=document.createElementNS(NS,"text");t.setAttribute("class","glyph");t.id="gl"+i;t.setAttribute("transform",`rotate(${c}) translate(0,-155)`);t.textContent=s[1]+"\uFE0E";g.appendChild(t);});
-  let cur=0,sel=-1;
-  function showSign(i){$("hubName").textContent=SIGNS[i][0];$("hubSub").textContent="Tu signo";if(i===sel)return;
-    if(sel>=0){$("seg"+sel).classList.remove("on");$("gl"+sel).classList.remove("on");}sel=i;$("seg"+i).classList.add("on");$("gl"+i).classList.add("on");
-    cur+=((-i*30-cur)%360+540)%360-180;g.style.transform=`rotate(${cur}deg)`;}
-
-  // ---------- Paso 1: país y ciudad ----------
+  // País y ciudad
   const PLACES={
     "Perú":["Lima","Arequipa","Trujillo","Chiclayo","Piura","Cusco","Iquitos","Huancayo","Chimbote","Tacna","Ica","Juliaca","Puno","Cajamarca","Ayacucho","Huánuco","Pucallpa","Tumbes","Moquegua","Huaraz","Chachapoyas","Moyobamba","Tarapoto","Puerto Maldonado","Abancay","Huancavelica","Cerro de Pasco","Callao"],
     "Argentina":["Buenos Aires","Córdoba","Rosario","Mendoza","La Plata","Tucumán","Mar del Plata","Salta"],
@@ -377,83 +363,152 @@ footer a{color:inherit}
     "Uruguay":["Montevideo","Salto","Punta del Este","Paysandú"],
     "Venezuela":["Caracas","Maracaibo","Valencia","Barquisimeto","Maracay","Mérida"]
   };
+  const OTHER_COUNTRY="Otro país";
+  const fCountry=$("fCountry"),fCity=$("fCity");
+  const opt=(v,t,dis)=>{const o=document.createElement("option");o.value=v;o.textContent=t;if(dis){o.disabled=true;o.selected=true;}return o;};
+  fCountry.append(opt("","Elige un país",true));
+  Object.keys(PLACES).forEach(c=>fCountry.append(opt(c,c)));
+  fCountry.append(opt(OTHER_COUNTRY,OTHER_COUNTRY));
+  function fillCities(){
+    const c=fCountry.value;fCity.innerHTML="";
+    if(!c){fCity.append(opt("","Primero elige el país",true));fCity.disabled=true;toggleOther();return;}
+    fCity.disabled=false;
+    if(c===OTHER_COUNTRY){fCity.append(opt("__otra","Escribir mi ciudad"));}
+    else{fCity.append(opt("","Elige una ciudad",true));PLACES[c].forEach(x=>fCity.append(opt(x,x)));fCity.append(opt("__otra","Otra ciudad"));}
+    toggleOther();
+  }
+  function toggleOther(){const on=fCity.value==="__otra";$("otherWrap").hidden=!on;if(!on)$("fOther").value="";$("otherWrap").querySelector("span").textContent=fCountry.value===OTHER_COUNTRY?"Escribe tu ciudad y país":"Escribe tu ciudad";}
+  fCountry.addEventListener("change",fillCities);
+  fCity.addEventListener("change",toggleOther);
+  fillCities();
+
+  // Fecha y hora según el país
+  const MDY=["Estados Unidos"];
+  const MESES=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
+  const fDay=$("fDay"),fMonth=$("fMonth"),fYear=$("fYear"),fHour=$("fHour"),fMin=$("fMin");
+  fMonth.append(opt("","Mes",true));MESES.forEach((m,i)=>fMonth.append(opt(String(i+1),m)));
+  const hoy=new Date().getFullYear();
+  fYear.append(opt("","Año",true));for(let y=hoy;y>=1920;y--)fYear.append(opt(String(y),String(y)));
+  function fillDays(){
+    const keep=fDay.value,m=+fMonth.value||1,y=+fYear.value||2000;
+    const n=new Date(y,m,0).getDate();
+    fDay.innerHTML="";fDay.append(opt("","Día",!keep||+keep>n));
+    for(let d=1;d<=n;d++){const o=opt(String(d),String(d));if(String(d)===keep&&+keep<=n)o.selected=true;fDay.append(o);}
+  }
+  fillDays();
+  fHour.append(opt("","No sé la hora"));
+  for(let h=0;h<24;h++){
+    const h12=h%12===0?12:h%12,ap=h<12?"a. m.":"p. m.";
+    fHour.append(opt(String(h).padStart(2,"0"),h12+" "+ap+" ("+String(h).padStart(2,"0")+":00)"));
+  }
+  fHour.querySelector("option").selected=true;
+  fMin.append(opt("00","00 min"));for(let m=1;m<60;m++)fMin.append(opt(String(m).padStart(2,"0"),String(m).padStart(2,"0")+" min"));
+  function setDateFormat(){
+    const c=fCountry.value,row=$("dateRow");
+    const on=!!c;[fDay,fMonth,fYear].forEach(x=>x.disabled=!on);
+    $("dateHint").textContent=on?(MDY.includes(c)?"Formato: mes / día / año":"Formato: día / mes / año"):"Primero elige tu país";
+    if(MDY.includes(c)){row.className="tri mdy";row.append(fMonth,fDay,fYear);}
+    else{row.className="tri";row.append(fDay,fMonth,fYear);}
+  }
+  function fechaISO(){
+    if(!fDay.value||!fMonth.value||!fYear.value)return "";
+    return fYear.value+"-"+fMonth.value.padStart(2,"0")+"-"+fDay.value.padStart(2,"0");
+  }
+  function onDate(){fillDays();const v=fechaISO();if(v){const p=parseDate(v);showSign(signIndex(p.m,p.d));}}
+  fMonth.addEventListener("change",onDate);fYear.addEventListener("change",onDate);fDay.addEventListener("change",onDate);
+  fHour.addEventListener("change",()=>{fMin.disabled=!fHour.value;});
+  fMin.disabled=true;
+  fCountry.addEventListener("change",setDateFormat);
+  setDateFormat();
+
+  // Código telefónico según el país
   const CODIGOS=[["Perú","🇵🇪","+51"],["Argentina","🇦🇷","+54"],["Bolivia","🇧🇴","+591"],["Brasil","🇧🇷","+55"],["Chile","🇨🇱","+56"],
     ["Colombia","🇨🇴","+57"],["Costa Rica","🇨🇷","+506"],["Cuba","🇨🇺","+53"],["Ecuador","🇪🇨","+593"],["El Salvador","🇸🇻","+503"],
     ["España","🇪🇸","+34"],["Estados Unidos","🇺🇸","+1"],["Guatemala","🇬🇹","+502"],["Honduras","🇭🇳","+504"],["México","🇲🇽","+52"],
     ["Nicaragua","🇳🇮","+505"],["Panamá","🇵🇦","+507"],["Paraguay","🇵🇾","+595"],["Puerto Rico","🇵🇷","+1"],
     ["República Dominicana","🇩🇴","+1"],["Uruguay","🇺🇾","+598"],["Venezuela","🇻🇪","+58"]];
-  const OTHER="Otro país",fCountry=$("fCountry"),fCity=$("fCity");
-  fCountry.append(opt("","Elige un país",true));Object.keys(PLACES).forEach(c=>fCountry.append(opt(c,c)));fCountry.append(opt(OTHER,OTHER));
-  function fillCities(){const c=fCountry.value;fCity.innerHTML="";
-    if(!c){fCity.append(opt("","Primero elige el país",true));fCity.disabled=true;toggleOther();return;}
-    fCity.disabled=false;
-    if(c===OTHER)fCity.append(opt("__otra","Escribir mi ciudad"));
-    else{fCity.append(opt("","Elige una ciudad",true));PLACES[c].forEach(x=>fCity.append(opt(x,x)));fCity.append(opt("__otra","Otra ciudad"));}
-    toggleOther();}
-  function toggleOther(){const on=fCity.value==="__otra";$("otherWrap").hidden=!on;if(!on)$("fOther").value="";
-    $("otherWrap").querySelector("span").textContent=fCountry.value===OTHER?"Escribe tu ciudad y país":"Escribe tu ciudad";}
-  fCountry.addEventListener("change",()=>{fillCities();setDateFormat();setCode();});fCity.addEventListener("change",toggleOther);fillCities();
-  const ciudad=()=>fCity.value==="__otra"?$("fOther").value.trim():fCity.value;
-  $("next1").addEventListener("click",()=>{
-    if(!fCountry.value){$("e1").textContent="Elige el país donde naciste.";fCountry.focus();return;}
-    if(!ciudad()){$("e1").textContent=fCity.value==="__otra"?"Escribe la ciudad donde naciste.":"Elige la ciudad donde naciste.";(fCity.value==="__otra"?$("fOther"):fCity).focus();return;}
-    $("e1").textContent="";show("vFecha");});
+  const fCode=$("fCode");
+  CODIGOS.forEach(([pais,flag,code])=>{const o=opt(pais,flag+" "+code);o.dataset.code=code;fCode.append(o);});
+  const otroCod=opt("__otro","🌐 Otro");otroCod.dataset.code="";fCode.append(otroCod);
+  function setCode(){
+    const c=fCountry.value;
+    if(CODIGOS.some(x=>x[0]===c)) fCode.value=c;
+    else if(c==="Otro país") fCode.value="__otro";
+    syncPhoneHint();
+  }
+  function syncPhoneHint(){$("fPhone").placeholder=fCode.value==="__otro"?"+ código y número":"Tu número";}
+  fCode.addEventListener("change",syncPhoneHint);
+  fCountry.addEventListener("change",setCode);
+  fCode.value="Perú";
 
-  // ---------- Paso 2: fecha (formato según país) ----------
-  const MESES=["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"];
-  const fDay=$("fDay"),fMonth=$("fMonth"),fYear=$("fYear");
-  fMonth.append(opt("","Mes",true));MESES.forEach((m,i)=>fMonth.append(opt(String(i+1),m)));
-  fYear.append(opt("","Año",true));for(let y=new Date().getFullYear();y>=1920;y--)fYear.append(opt(String(y),String(y)));
-  function fillDays(){const keep=fDay.value,m=+fMonth.value||1,y=+fYear.value||2000,n=new Date(y,m,0).getDate();
-    fDay.innerHTML="";fDay.append(opt("","Día",!keep||+keep>n));for(let d=1;d<=n;d++){const o=opt(String(d),String(d));if(String(d)===keep)o.selected=true;fDay.append(o);}}
-  fillDays();
-  function setDateFormat(){const us=fCountry.value==="Estados Unidos",row=$("dateRow");
-    if(us){row.className="tri mdy";row.append(fMonth,fDay,fYear);$("dateHint").textContent="Mes, día y año.";}
-    else{row.className="tri";row.append(fDay,fMonth,fYear);$("dateHint").textContent="Día, mes y año.";}}
-  const fechaISO=()=>fDay.value&&fMonth.value&&fYear.value?fYear.value+"-"+fMonth.value.padStart(2,"0")+"-"+fDay.value.padStart(2,"0"):"";
-  [fMonth,fYear,fDay].forEach(s=>s.addEventListener("change",()=>{fillDays();const v=fechaISO();if(v){const [,m,d]=v.split("-").map(Number);showSign(signIndex(m,d));}}));
-  $("next2").addEventListener("click",()=>{if(!fechaISO()){$("e2").textContent="Completa tu fecha: día, mes y año.";return;}$("e2").textContent="";show("vHora");});
+  // ================= Conexión =================
+  const SCRIPT_URL="https://script.google.com/macros/s/AKfycbzU5dRFMGiuQl5F0rKLoZNhAxsc1tbOJXSjYh3X8jEOs5UVe6O8BaTDCcr-0Z0QfEMyWg/exec";
+  const GOOGLE_CLIENT_ID="386281758322-vkq15r8nt6r46c7q4uifcu0aoc6e6gn5.apps.googleusercontent.com";
+  const KEY="cielomio_sesion";
+  const store={get(){try{return localStorage.getItem(KEY)}catch(e){return null}},set(v){try{localStorage.setItem(KEY,v)}catch(e){}},del(){try{localStorage.removeItem(KEY)}catch(e){}}};
+  async function api(body){const r=await fetch(SCRIPT_URL,{method:"POST",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(body)});return r.json();}
+  const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e;};
+  const ERR={limite:"Pediste muchos códigos. Espera una hora e inténtalo de nuevo.",vencido:"El código venció. Pide uno nuevo.",
+    intentos:"Demasiados intentos. Pide un código nuevo.",google:"No pudimos verificar tu cuenta de Google. Inténtalo de nuevo.",
+    envio:"No pudimos enviar el correo. Inténtalo en unos minutos.",correo:"Revisa tu correo: falta la @ o el dominio.",
+    permiso:"Tu acceso venció. Confirma tu correo de nuevo.",interno:"Algo falló. Inténtalo de nuevo en un momento."};
 
-  // ---------- Paso 3: hora ----------
-  const fHour=$("fHour"),fMin=$("fMin");
-  fHour.append(opt("","No sé la hora"));for(let h=0;h<24;h++){const h12=h%12===0?12:h%12;fHour.append(opt(String(h).padStart(2,"0"),h12+" "+(h<12?"a. m.":"p. m.")+" ("+String(h).padStart(2,"0")+":00)"));}
-  fHour.value="";for(let m=0;m<60;m++)fMin.append(opt(String(m).padStart(2,"0"),String(m).padStart(2,"0")+" min"));
-  fMin.disabled=true;fHour.addEventListener("change",()=>fMin.disabled=!fHour.value);
-  const nacimiento=()=>({date:fechaISO(),time:fHour.value?fHour.value+":"+fMin.value:"",country:fCountry.value,city:ciudad()});
+  // ================= Pantallas =================
+  function ver(v){["homeView","espacioView","cargandoView"].forEach(x=>$(x).hidden=x!==v);window.scrollTo(0,0);}
+  function cargando(t){$("loadMsg").textContent=t;ver("cargandoView");}
+  function panel(id){["signup","loginPanel","donePanel"].forEach(x=>$(x).hidden=x!==id);$("intro").hidden=id!=="signup";ver("homeView");}
+  function mostrarForm(){panel("signup");}
+  function mostrarLogin(){
+    panel("loginPanel");$("eL").textContent="";$("codeStep1").hidden=false;$("codeStep2").hidden=true;
+    if(!$("lEmail").value&&$("fEmail").value)$("lEmail").value=$("fEmail").value.trim();
+    pintarGoogle();
+  }
+  const irSemana=()=>store.get()?abrirEspacio():mostrarLogin();
+  $("loginBack").addEventListener("click",mostrarForm);
+  $("topBtn").addEventListener("click",irSemana);
+  $("weekLink").addEventListener("click",irSemana);
+  $("dWeek").addEventListener("click",irSemana);
+  $("dAgain").addEventListener("click",()=>{$("signup").reset();fillCities();setDateFormat();fillDays();fMin.disabled=true;fCode.value="Perú";
+    permiso=null;$("fEmail").readOnly=false;mostrarForm();});
+  const irInicio=()=>store.get()?abrirEspacio():mostrarForm();
+  $("goHome").addEventListener("click",irInicio);
+  $("goHome").addEventListener("keydown",e=>{if(e.key==="Enter")irInicio();});
 
-  // ---------- Adelanto ----------
-  $("next3").addEventListener("click",async()=>{
-    const b=$("next3");b.disabled=true;b.textContent="Mirando el cielo…";$("e3").textContent="";
-    try{
-      const r=await api(Object.assign({action:"adelanto"},nacimiento()));
-      if(!r.ok)throw 0;
-      const i=SIGNS.findIndex(s=>s[0]===r.sol);
-      $("aSign").textContent=r.sol+" "+(i>=0?SIGNS[i][1]+"\uFE0E":"");$("aFrase").textContent=r.frase;
-      const t=$("aTrio");t.innerHTML="";
-      [["Tu signo",r.sol],["Tu Luna",r.luna],["Tu ascendente",r.asc||"Falta tu hora"]].forEach(([k,v])=>{const d=el("div");d.append(el("small",null,k),el("b",null,v));t.append(d);});
-      show("vAdelanto");
-    }catch(e){$("e3").textContent="No pudimos calcular tu carta. Revisa tu conexión e inténtalo de nuevo.";}
-    finally{b.disabled=false;b.textContent="Ver mi resultado";}
+  // ================= Formulario =================
+  let datos=null;
+  $("signup").addEventListener("submit",e=>{
+    e.preventDefault();
+    const name=$("fName").value.trim(),country=fCountry.value,
+          city=fCity.value==="__otra"?$("fOther").value.trim():fCity.value,
+          date=fechaISO(),time=fHour.value?fHour.value+":"+fMin.value:"",phone=$("fPhone").value.trim(),email=$("fEmail").value.trim();
+    const fail=(msg,id)=>{$("fErr").textContent=msg;$(id).focus();};
+    if(!name) return fail("Escribe tu nombre.","fName");
+    if(!country) return fail("Elige el país donde naciste.","fCountry");
+    if(!city) return fail(fCity.value==="__otra"?"Escribe la ciudad donde naciste.":"Elige la ciudad donde naciste.",fCity.value==="__otra"?"fOther":"fCity");
+    if(!date) return fail("Completa tu fecha de nacimiento: día, mes y año.",!fDay.value?"fDay":!fMonth.value?"fMonth":"fYear");
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail("Revisa tu correo: falta la @ o el dominio.","fEmail");
+    const code=fCode.selectedOptions[0].dataset.code,digits=phone.replace(/\D/g,"");
+    if(code&&digits.length<6) return fail("Escribe tu número de teléfono completo.","fPhone");
+    if(!code&&(!phone.startsWith("+")||digits.length<8)) return fail("Escribe tu número con el código de país, por ejemplo +44 7700 900000.","fPhone");
+    $("fErr").textContent="";
+    datos={name,date,time,country,city,email,phone:code?code+" "+phone.replace(/^\s*\+?0*/,""):phone};
+    $("consent").classList.add("show");$("cOk").focus();
   });
-  $("toLogin").addEventListener("click",()=>permiso?abrirDatos():irLogin("nuevo"));
 
-  // ---------- Login ----------
-  let modo="cuenta",permiso=null,correoV="",nombreV="";
-  function irLogin(m){modo=m;$("lTitle").textContent=m==="nuevo"?"Entra para ver tu carta":"Entra a tu espacio";
-    $("eL").textContent="";$("codeStep1").hidden=false;$("codeStep2").hidden=true;show("vLogin");pintarGoogle();}
-  $("loginBack").addEventListener("click",()=>show(modo==="nuevo"?"vAdelanto":"vInicio"));
+  // ================= Google =================
   let gListo=false;
   function pintarGoogle(){
     if(!window.google||!google.accounts||!google.accounts.id){setTimeout(pintarGoogle,300);return;}
-    if(!gListo){google.accounts.id.initialize({client_id:GOOGLE_CLIENT_ID,callback:onGoogle,ux_mode:"popup",use_fedcm_for_prompt:true});gListo=true;}
+    if(!gListo){google.accounts.id.initialize({client_id:GOOGLE_CLIENT_ID,callback:onGoogle,ux_mode:"popup"});gListo=true;}
     const box=$("gBtn");box.innerHTML="";
     google.accounts.id.renderButton(box,{theme:"outline",size:"large",shape:"pill",text:"continue_with",locale:"es",width:Math.min(box.clientWidth||320,400)});
   }
   async function onGoogle(resp){
-    show("vCargando");$("loadMsg").textContent="Verificando tu cuenta…";
-    try{trasVerificar(await api({action:"google",credential:resp.credential}));}catch(e){show("vLogin");$("eL").textContent=ERR.interno;}
+    $("eL").textContent="Verificando…";
+    try{trasVerificar(await api({action:"google",credential:resp.credential}));}catch(e){$("eL").textContent=ERR.interno;}
   }
-  window.__cielomioGoogle=onGoogle;
+
+  // ================= Código por correo =================
   $("sendCode").addEventListener("click",async()=>{
     const email=$("lEmail").value.trim(),b=$("sendCode");
     if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){$("eL").textContent=ERR.correo;$("lEmail").focus();return;}
@@ -477,116 +532,129 @@ footer a{color:inherit}
     }catch(e){$("eL").textContent=ERR.interno;}
     finally{b.disabled=false;}
   });
-  function trasVerificar(r){
-    if(!r.ok){show("vLogin");$("eL").textContent=ERR[r.error]||ERR.interno;return;}
-    if(r.registrado){store.set(r.sesion);abrirEspacio();return;}
-    permiso=r.permiso;correoV=r.correo;nombreV=r.nombre||"";
-    if(!fechaISO()||!ciudad()){ // entró sin haber respondido las preguntas
-      $("e1").textContent="";show("vLugar");$("lugarNota").hidden=false;return;}
-    abrirDatos();
-  }
 
-  // ---------- Último paso ----------
-  const INTERESES=["Negocios","Finanzas personales","Emprendimiento","Trabajo y carrera","Amor","Salud y bienestar"];
-  function chips(box,sel){box.innerHTML="";INTERESES.forEach(t=>{const l=el("label","chip"),i=el("input");i.type="checkbox";i.value=t;i.checked=sel.includes(t);l.append(i,el("span",null,t));box.append(l);});}
-  const elegidos=box=>[...box.querySelectorAll("input:checked")].map(x=>x.value);
-  const fCode=$("fCode");
-  CODIGOS.forEach(([pais,flag,code])=>{const o=opt(pais,flag+" "+code);o.dataset.code=code;fCode.append(o);});
-  const oo=opt("__otro","🌐 Otro");oo.dataset.code="";fCode.append(oo);fCode.value="Perú";
-  function setCode(){const c=fCountry.value;if(CODIGOS.some(x=>x[0]===c))fCode.value=c;else if(c===OTHER)fCode.value="__otro";$("fPhone").placeholder=fCode.value==="__otro"?"+ código y número":"Tu número";}
-  fCode.addEventListener("change",()=>$("fPhone").placeholder=fCode.value==="__otro"?"+ código y número":"Tu número");
-  function abrirDatos(){$("dMail").textContent="Entraste como "+correoV+".";$("fName").value=nombreV;chips($("fInt"),[]);$("e4").textContent="";show("vDatos");}
-  let pendiente=null;
-  $("finish").addEventListener("click",()=>{
-    const name=$("fName").value.trim(),raw=$("fPhone").value.trim(),code=fCode.selectedOptions[0].dataset.code,dig=raw.replace(/\D/g,"");
-    if(!name){$("e4").textContent="Escribe tu nombre.";$("fName").focus();return;}
-    if(code&&dig.length<6){$("e4").textContent="Escribe tu número de teléfono completo.";$("fPhone").focus();return;}
-    if(!code&&(!raw.startsWith("+")||dig.length<8)){$("e4").textContent="Escribe tu número con el código de país, por ejemplo +44 7700 900000.";$("fPhone").focus();return;}
-    $("e4").textContent="";
-    pendiente=Object.assign({action:"registrar",permiso,name,phone:code?code+" "+raw.replace(/^\s*\+?0*/,""):raw,intereses:elegidos($("fInt")),publicaciones:$("fPub").checked},nacimiento());
-    $("consent").classList.add("show");$("cOk").focus();
-  });
+  // ================= Después de confirmar el correo =================
+  let permiso=null;
+  function trasVerificar(r){
+    if(!r.ok){$("eL").textContent=ERR[r.error]||ERR.interno;return;}
+    $("eL").textContent="";
+    if(r.registrado){store.set(r.sesion);abrirEspacio(r.nuevo?"nuevo":"");return;}
+    // No está registrado: completa sus datos y queda registrado con su correo ya confirmado
+    permiso=r.permiso;mostrarForm();
+    $("fEmail").value=r.correo;$("fEmail").readOnly=true;
+    if(r.nombre&&!$("fName").value)$("fName").value=r.nombre;
+    $("fErr").textContent="Aún no estás registrado. Completa tus datos para recibir tu carta y ver tu semana.";
+  }
   const cerrar=()=>$("consent").classList.remove("show");
-  $("cNo").addEventListener("click",()=>{cerrar();$("e4").textContent="Sin tu aprobación no podemos crear tu cuenta ni enviarte tu carta.";});
+  $("cNo").addEventListener("click",()=>{cerrar();$("eL").textContent="Sin tu aprobación no podemos enviarte tu carta.";});
   $("consent").addEventListener("click",e=>{if(e.target.id==="consent")cerrar();});
   document.addEventListener("keydown",e=>{if(e.key==="Escape")cerrar();});
   $("cOk").addEventListener("click",async()=>{
-    cerrar();if(!pendiente)return;pendiente.consent=new Date().toISOString();
-    show("vCargando");$("loadMsg").textContent="Calculando tu carta…";
-    try{const r=await api(pendiente);
-      if(!r.ok){if(r.error==="permiso"){permiso=null;irLogin("nuevo");$("eL").textContent=ERR.permiso;}else{show("vDatos");$("e4").textContent=ERR[r.error]||ERR.interno;}return;}
-      store.set(r.sesion);permiso=null;abrirEspacio(r.nuevo?"nuevo":"");
-    }catch(e){show("vDatos");$("e4").textContent=ERR.interno;}
+    cerrar();
+    const body=Object.assign({action:"registrar",publicaciones:$("fPub").checked,intereses:[],consent:new Date().toISOString()},datos);
+    if(permiso)body.permiso=permiso;
+    cargando("Calculando tu carta…");
+    try{const r=await api(body);
+      if(!r.ok){mostrarForm();$("fErr").textContent=r.error==="permiso"?ERR.permiso:(ERR[r.error]||ERR.interno);if(r.error==="permiso"){permiso=null;$("fEmail").readOnly=false;}return;}
+      if(r.sesion){store.set(r.sesion);permiso=null;abrirEspacio("nuevo");return;}
+      $("lEmail").value=datos.email;
+      if(r.existe){$("dTitle").textContent="Ya estabas registrado";$("dSign").textContent="";$("dFrase").textContent="";
+        $("dText").textContent="Ya te enviamos tu carta a "+datos.email+". Para saber qué pasará esta semana, toca \"Registrarme gratis\" en ese correo o entra aquí abajo.";}
+      else{$("dTitle").textContent="Listo, "+datos.name+". Eres";$("dSign").textContent=r.signo+" "+r.simbolo+"\uFE0E";$("dFrase").textContent=r.frase;
+        $("dText").textContent="Tu carta astral completa ya está en tu correo ("+datos.email+"). Ahí también encontrarás el botón para registrarte gratis y saber qué pasará semana a semana. Si no la ves, revisa spam o promociones.";}
+      panel("donePanel");
+    }catch(e){mostrarForm();$("fErr").textContent=ERR.interno;}
   });
 
-  // ---------- Mi espacio ----------
-  let datos=null;
+  // ================= Mi espacio =================
   document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>tab(t.dataset.tab)));
   function tab(id){document.querySelectorAll(".tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.tab===id));["tSemana","tCarta","tCuenta"].forEach(x=>$(x).hidden=x!==id);}
   async function abrirEspacio(origen){
-    show("vCargando");$("loadMsg").textContent="Cargando tu espacio…";
+    cargando("Cargando tu espacio…");
     try{const r=await api({action:"espacio",sesion:store.get()});
-      if(!r.ok){store.del();irLogin("cuenta");$("eL").textContent=ERR.permiso;return;}
-      datos=r;pintarSemana(r.semana);pintarCarta(r.carta);pintarCuenta(r.cuenta,r.opciones);
+      if(!r.ok){store.del();mostrarLogin();$("eL").textContent=ERR.permiso;return;}
+      pintarSemana(r.semana);pintarCarta(r.carta);pintarCuenta(r.cuenta);
       $("hello").textContent="Hola "+r.nombre+" · "+r.carta.signo;
       const w=$("welcome");
-      if(origen==="nuevo"){w.hidden=false;w.textContent="¡Bienvenido! Tu carta ya está en tu correo. Tienes Premium de regalo hasta el "+r.cuenta.premiumHasta+".";tab("tCarta");}
-      else{w.hidden=true;tab("tSemana");}
-      show("vEspacio");
-    }catch(e){show("vInicio");}
+      w.hidden=origen!=="nuevo";
+      if(origen==="nuevo")w.textContent="¡Ya estás registrado! Tienes Premium de regalo hasta el "+r.cuenta.premiumHasta+".";
+      tab("tSemana");
+      ver("espacioView");
+    }catch(e){mostrarForm();}
   }
   const AREA=[["amor","❤️","Amor"],["trabajo","💼","Trabajo"],["dinero","💰","Dinero"],["energia","⚡","Energía"]];
   function pintarSemana(s){
     const b=$("tSemana");b.innerHTML="";
-    b.append(el("h2",null,"Tu semana del "+s.rango),el("p","destacado",s.destacado));
+    b.append(el("h1",null,"Tu semana del "+s.rango),el("p","destacado",s.destacado));
     if(s.alerta)b.append(el("p","alerta",s.alerta));
+    if(s.bloqueada)b.append(el("p","banner",s.bloqueada+" Escríbenos a pedrorojasg.1986@gmail.com para activarlo."));
+    if(s.momentos&&s.momentos.length){
+      b.append(el("p","sec-title","DÍA A DÍA"));
+      const tl=el("div","timeline");
+      s.momentos.forEach(m=>{const it=el("div","mom "+m.tono);it.append(el("span","mdia",m.dia),el("b",null,m.titulo),el("p",null,m.texto));tl.append(it);});
+      if(s.momentosBloqueados){const it=el("div","mom lock");it.append(el("span","mdia","🔒"),el("b",null,s.momentosBloqueados+" momentos más esta semana"),el("p","muted","Disponibles en Premium."));tl.append(it);}
+      b.append(tl);
+    }
+    b.append(el("p","sec-title","POR ÁREAS"));
     const cards=el("div","cards");
     AREA.forEach(([k,ic,nom])=>{const a=s.areas[k],c=el("div","card"),h=el("h3",null,ic+" "+nom);
-      if(!a.bloqueada){const st=el("span","st","★".repeat(a.estrellas)+"☆".repeat(5-a.estrellas));st.setAttribute("aria-label",a.estrellas+" de 5");h.append(st);c.append(h,el("p",null,a.texto));}
+      if(!a.bloqueada){const st=el("span","st","★".repeat(a.estrellas)+"☆".repeat(5-a.estrellas));st.setAttribute("aria-label",a.estrellas+" de 5");h.append(st);c.append(h,el("p",null,a.texto));
+        if(a.mejorDia)c.append(el("small",null,"Mejor día: "+a.mejorDia));}
       else{h.append(el("span","st","🔒"));c.append(h,el("p","muted","Disponible en Premium."));}
       cards.append(c);});
-    if(s.bloqueada){const lk=el("div","banner",s.bloqueada+" Escríbenos a pedrorojasg.1986@gmail.com para activarlo.");b.append(lk);}
     b.append(cards);
     const d=el("div","days"),d1=el("div");d1.append(el("span","muted","Tu mejor día"),el("b",null,s.mejorDia));d.append(d1);
     if(s.diaCalma){const d2=el("div");d2.append(el("span","muted","Día para ir con calma"),el("b",null,s.diaCalma));d.append(d2);}
     b.append(d);
-    if(s.consejo){const c=el("p","consejo");c.append(el("span","muted","Consejo de la semana"),el("b",null,s.consejo));b.append(c);}
+    if(s.consejo){const c=el("p","consejo");c.append(el("span","muted","Consejo de la semana"),el("br"),el("b",null,s.consejo));b.append(c);}
   }
   function pintarCarta(k){
     const b=$("tCarta");b.innerHTML="";
-    b.append(el("p","muted","Tu signo es"),el("div","big-sign",k.signo+" "+k.simbolo+"\uFE0E"),el("p",null,k.frase));
+    b.append(el("p","muted","Tu signo es"),el("div","big-sign",k.signo+" "+k.simbolo+"\uFE0E"));
+    if(k.solDetalle)b.append(el("small","muted",k.solDetalle));
+    b.append(el("p",null,k.frase));
+    if(k.enfoque)b.append(el("p","banner","🏠 "+k.enfoque));
     const ex=el("div","explica");ex.append(el("b",null,"¿Por qué aparecen otros signos?"),el("p","muted",k.explicacion));b.append(ex);
     const blk=(t,arr)=>{b.append(el("p","sec-title",t));const cs=el("div","cards");arr.forEach(x=>{const c=el("div","card");c.append(el("h3",null,x.icono+" "+x.titulo),el("p",null,x.texto),el("small",null,x.etiqueta));cs.append(c);});b.append(cs);};
-    blk("TU FORMA DE SER, PARTE POR PARTE",k.secciones);blk("DOS DATOS CURIOSOS MÁS",k.extras);
+    blk("TU FORMA DE SER, PARTE POR PARTE",k.secciones);
+    if(k.aspectos&&k.aspectos.length)blk("CÓMO SE LLEVAN TUS PLANETAS",k.aspectos);
+    blk("DOS DATOS CURIOSOS MÁS",k.extras);
     if(!k.conHora)b.append(el("p","muted","Como no indicaste tu hora de nacimiento, no pudimos calcular cómo te ven los demás (tu ascendente)."));
   }
-  function pintarCuenta(c,o){
+  const INTERESES=["Negocios","Finanzas personales","Emprendimiento","Trabajo y carrera","Amor","Salud y bienestar"];
+  function pintarCuenta(c){
     const b=$("tCuenta");b.innerHTML="";
     const dl=el("dl");[["Nombre",c.nombre],["Correo",c.correo],["Teléfono",c.telefono||"—"],["Nacimiento",c.nacimiento],["Lugar",c.lugar],
       ["Plan",c.plan+(c.premiumHasta?" hasta el "+c.premiumHasta:"")]].forEach(([k,v])=>dl.append(el("dt",null,k),el("dd",null,v)));
     b.append(dl);
-    const st=el("div","stack");
-    const fs=el("fieldset");fs.style.cssText="border:0;padding:0;margin:0;min-width:0";fs.append(el("legend","lbl","Tus intereses"));
-    const ch=el("div","chips");chips(ch,c.intereses.split(", ").filter(Boolean));fs.append(ch);st.append(fs);
+    const st=el("div","stack"),fs=el("fieldset");fs.style.cssText="border:0;padding:0;margin:0;min-width:0";fs.append(el("legend","lbl","¿Qué te interesa?"));
+    const ch=el("div","chips"),sel=c.intereses.split(", ").filter(Boolean);
+    INTERESES.forEach(t=>{const l=el("label","chip"),i=el("input");i.type="checkbox";i.value=t;i.checked=sel.includes(t);l.append(i,el("span",null,t));ch.append(l);});
+    fs.append(ch);st.append(fs);
     const pl=el("label","check"),pi=el("input");pi.type="checkbox";pi.checked=c.publicaciones;pl.append(pi," Quiero recibir también noticias de negocios y finanzas gratis");st.append(pl);
     const msg=el("p","muted"),sv=el("button","btn ghost","Guardar cambios");sv.type="button";
     sv.addEventListener("click",async()=>{sv.disabled=true;msg.textContent="";
-      try{const r=await api({action:"actualizarCuenta",sesion:store.get(),intereses:elegidos(ch),publicaciones:pi.checked});msg.textContent=r.ok?"Guardado ✓":ERR.interno;}catch(e){msg.textContent=ERR.interno;}
+      try{const r=await api({action:"actualizarCuenta",sesion:store.get(),intereses:[...ch.querySelectorAll("input:checked")].map(x=>x.value),publicaciones:pi.checked});msg.textContent=r.ok?"Guardado ✓":ERR.interno;}catch(e){msg.textContent=ERR.interno;}
       sv.disabled=false;});
-    st.append(sv,msg);
     const out=el("button","btn ghost","Cerrar sesión");out.type="button";
-    out.addEventListener("click",async()=>{try{await api({action:"salir",sesion:store.get()});}catch(e){}store.del();show("vInicio");});
+    out.addEventListener("click",async()=>{try{await api({action:"salir",sesion:store.get()});}catch(e){}store.del();datos=null;$("dAgain").click();});
     const del=el("button","link danger","Borrar mi cuenta y mis datos");del.type="button";
-    del.addEventListener("click",async()=>{
-      if(!confirm("¿Seguro? Se borrarán tu carta, tus datos y tu acceso. No se puede deshacer."))return;
-      try{const r=await api({action:"borrarCuenta",sesion:store.get()});if(r.ok){store.del();alert("Listo. Borramos tus datos.");show("vInicio");}}catch(e){alert(ERR.interno);}
-    });
-    st.append(el("div"),out,del);b.append(st);
+    del.addEventListener("click",async()=>{if(!confirm("¿Seguro? Se borrarán tu carta, tus datos y tu acceso. No se puede deshacer."))return;
+      try{const r=await api({action:"borrarCuenta",sesion:store.get()});if(r.ok){store.del();datos=null;alert("Listo. Borramos tus datos.");mostrarForm();}}catch(e){alert(ERR.interno);}});
+    st.append(sv,msg,out,del);b.append(st);
   }
 
-  // ---------- Inicio ----------
-  (function(){const t=new Date();showSign(signIndex(t.getMonth()+1,t.getDate()));$("hubName").textContent="Tu signo";$("hubSub").textContent="Descúbrelo";})();
-  if(store.get())abrirEspacio();else show("vInicio");
+  // ================= Inicio =================
+  const u=new URL(location.href),pideSemana=u.searchParams.has("semana"),tokAct=u.searchParams.get("activar");
+  if(pideSemana||tokAct){u.searchParams.delete("semana");u.searchParams.delete("activar");history.replaceState(null,"",u.pathname+u.search+u.hash);}
+  if(tokAct){
+    cargando("Activando tu registro…");
+    api({action:"activar",token:tokAct}).then(r=>{
+      if(r.ok&&r.sesion){store.set(r.sesion);abrirEspacio(r.nuevo?"nuevo":"");}
+      else{mostrarLogin();$("eL").textContent="Ese enlace venció. Entra con tu correo para registrarte.";}
+    }).catch(()=>{mostrarLogin();$("eL").textContent=ERR.interno;});
+  }
+  else if(store.get())abrirEspacio();else if(pideSemana)mostrarLogin();else mostrarForm();
 })();
 </script>
 </body>
